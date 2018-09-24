@@ -1,14 +1,14 @@
 require 'pry'
 def reformat_languages(languages)
-  haxh = {}
-  languages.each do |type, name|
-    name.each do |x,y|
-      y[:style] = []
-      haxh[x] = y
-      if haxh.keys.include?(x)
-        haxh[x][:style].push(type)
-      end
+ haxh = {}
+  languages.each do |style,language|
+    language.each do |name,type|
+        if haxh[name] == nil
+          haxh[name] = type
+          haxh[name][:style] = []
+        end
+        haxh[name][:style] << style
     end
   end
-  haxh
+  new_hash
 end
